@@ -133,3 +133,4 @@ user_custom
 # Excludes
 !makefile_base_posix.mak
 !sourcesdk_def.mak
+*.lib

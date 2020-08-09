@@ -434,6 +434,8 @@ void CBaseHudWeaponSelection::UserCmd_Close(void)
 //-----------------------------------------------------------------------------
 void CBaseHudWeaponSelection::UserCmd_NextWeapon(void)
 {
+	Msg("next weapon\n");
+
 	// If we're not allowed to draw, ignore weapon selections
 	if ( !BaseClass::ShouldDraw() )
 		return;
@@ -474,12 +476,12 @@ void CBaseHudWeaponSelection::UserCmd_LastWeapon(void)
 	if ( !BaseClass::ShouldDraw() )
 		return;
 
-	/*
+	
 	if ( IsHudMenuPreventingWeaponSelection() )	
 	{ 
 		return;
 	}
-	*/
+	
 
 	SwitchToLastWeapon();
 }
@@ -504,6 +506,7 @@ void CBaseHudWeaponSelection::SetWeaponSelected( void )
 {
 	Assert( GetSelectedWeapon() );
 	// Mark selection so that it's placed into next CUserCmd created
+	Msg("selected weapon: %d\n", GetSelectedWeapon());
 	input->MakeWeaponSelection( GetSelectedWeapon() );
 }
 
@@ -523,7 +526,7 @@ void CBaseHudWeaponSelection::SelectWeapon( void )
 	if ( !player )
 		return;
 
-	// Don't allow selections of weapons that can't be selected (out of ammo, etc)
+	//Don't allow selections of weapons that can't be selected (out of ammo, etc)
 	if ( !GetSelectedWeapon()->CanBeSelected() )
 	{
 		player->EmitSound( "Player.DenyWeaponSelection" );

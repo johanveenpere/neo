@@ -89,6 +89,7 @@ protected:
 		switch( hud_fastswitch.GetInt() )
 		{
 		case HUDTYPE_FASTSWITCH:
+			//break; //testing
 		case HUDTYPE_CAROUSEL:
 			ActivateFastswitchWeaponDisplay( GetSelectedWeapon() );
 			break;

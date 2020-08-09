@@ -57,7 +57,10 @@ void CWeaponZR68S::Spawn()
 
 bool CWeaponZR68S::Deploy(void)
 {
-	return BaseClass::Deploy();
+	if (CanDeploy()){
+		return BaseClass::Deploy();
+	}
+	return 0;
 }
 
 void CWeaponZR68S::PrimaryAttack()
